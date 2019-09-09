@@ -28,6 +28,7 @@ Page    : index video / Fluid
     <!-- Main CSS -->
     <link rel="stylesheet" href="css/style.css">
     <!-- /build -->
+    <script src="js/sweetalert2/dist/sweetalert2.all.min.js"></script>
 </head>
 
 <body>
@@ -58,7 +59,7 @@ Page    : index video / Fluid
                         <p class="lead my-4" data-aos="fade" data-aos-delay="1500">Powered by the Tao Learning Institute.</p>
                         <!-- // end .lead -->
                        <span class="animation anim-light" data-aos="slide-effect-btn" data-aos-delay="3000"> 
-                        <a href="javascript:void(0);" class="btn btn-lg btn-outline" data-toggle="modal" data-target="#subscribeModal">Join Us</a> 
+                        <a href="javascript:void(0);" class="btn btn-lg btn-outline" data-toggle="modal" data-target="#contactModal">Join Us</a> 
                         <a href="https://donorbox.org/taolearning" class="btn btn-lg btn-outline" tareget="_blank">Donate</a> 
                         </span>
                        
@@ -153,7 +154,7 @@ Page    : index video / Fluid
     <!-- // end .animation -->
 
 <!-- Subscribe Modal -->
-<div class="modal modal-center modal-dark" id="subscribeModal" tabindex="-1" role="dialog" aria-labelledby="subscribeModalLabel" aria-hidden="true">
+<div class="modal modal-center modal-dark" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
 
@@ -161,9 +162,9 @@ Page    : index video / Fluid
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true"><i class="pe-7s-close pe-2x"></i></span>
         </button>
-    <h2 class="modal-title" id="subscribeModalLabel">Join <br>The Silk Women&trade;</h2>
+    <h2 class="modal-title" id="contactModalLabel">Join <br>The Silk Women&trade;</h2>
        
-        <form class="pr-4 pl-4 pb-4" id="subscribeform" action="https://prod-20.eastus.logic.azure.com:443/workflows/a8bed9230a7445338ffbbecaa103ec67/triggers/request/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Frequest%2Frun&sv=1.0&sig=YV3iUoeOh72UDeef-DhrCA6J5iP4d8-XRCF-gH_HTcc" method="post">
+        <form enctype='application/json' class="pr-4 pl-4 pb-4" id="contactform" action="https://prod-20.eastus.logic.azure.com:443/workflows/a8bed9230a7445338ffbbecaa103ec67/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=tz8jPn70VwbD7XM6aZw6T2gNB_sxAutBWp5I-hKv6cA" method="post">
             <input type="hidden" name="test" value="off">
             <input type="hidden" name="owner" value="5cf40f14-1dd3-e911-a966-000d3a34e4b0">
             <input type="hidden" name="website" value="Silk Women">
@@ -198,10 +199,10 @@ Page    : index video / Fluid
             <label class="">Email Address</label>
          </div><!-- // end .form-group -->
          <div class="form-group text-center">
-             <button type="submit" class="btn btn-lg btn-outline" id="js-subscribe-btn">Submit</button>
+             <button type="submit" class="btn btn-lg btn-outline" id="js-contact-btn">Submit</button>
 
 
-             <div id="js-subscribe-result" data-success-msg="Success, Please check your email." data-error-msg="Oops! Something went wrong"></div>
+             <div id="js-contact-result" data-success-msg="Success, Please check your email." data-error-msg="Oops! Something went wrong"></div>
          </div><!-- // end .form-group -->
         
          
@@ -211,10 +212,10 @@ Page    : index video / Fluid
     </div>
   </div>
 </div>
-<!-- // End Subscribe Modal -->
+<!-- // End Contact Modal -->
 
 <!-- Contact Modal -->
-<div class="modal modal-center modal-dark" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel" aria-hidden="true">
+<div class="modal modal-center modal-dark" id="contactModal2" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
 
@@ -222,7 +223,7 @@ Page    : index video / Fluid
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true"><i class="pe-7s-close pe-2x"></i></span>
         </button>
-    <h2 class="modal-title" id="contactModalLabel">Contact Us</h2>
+    <h2 class="modal-title" id="contactModalLabel2">Contact Us</h2>
      <p class="lead text-center text-light p-2">
        Have a question? Want to know more about our super awesome project? Just send us a message.
      </p>
@@ -286,6 +287,56 @@ Page    : index video / Fluid
     <script src="js/validate.js"></script>
     <script src="js/subscribe.js"></script>
     <script src="js/contact.js"></script>
+
+    <script>
+
+            $("#contactform").submit(function(event){
+            if (!$("#contactform").validate().form()) {
+            return false; //doesn't validate
+            }else
+            {
+             event.preventDefault(); //prevent default action 
+            var post_url = $(this).attr("action"); //get form action url
+            var request_method = $(this).attr("method"); //get form GET/POST method
+            var content_type = $(this).attr("enctype"); //get form GET/POST method
+            var form_data = $(this).serialize(); //Encode form elements for submission
+            
+            
+            $.ajax({
+                    type: $(this).attr('method'),
+                    url: $(this).attr('action'),
+                    data: $(this).serialize(),
+                    success: function (data) {
+                        $("#contactform")[0].reset();
+                        $("input:checkbox").attr('checked', false);
+                        Swal({
+                        title: '<strong>Submission Successful</strong>',
+                        type: 'success',
+                        html:
+                            'Check email (and Spam!) for our Messsage.<br>Then, pass the Fundamental Course on the next link.',
+                        showCloseButton: true,
+                        focusConfirm: false,
+                        confirmButtonText:
+                            '<a style="color: white" href="https://ignitecuriosity.org/learn/fundamentals.html"><i class="fa fa-address-card"></i> OK</a>',
+                        confirmButtonAriaLabel: 'Join Group',
+                    });
+                        console.log('Submission was successful.');
+                        console.log(data);
+                        
+                    },
+                    error: function (data) {
+                        console.log('An error occurred.');
+                        console.log(data);
+                    },
+                }).then(function(response){ //
+                $("#server-results").html(response);
+            }); //form is validated do your work
+            }
+                
+           
+        });
+        </script>
+
 
     <!-- Main JS -->
     <script src="js/script.js"></script>
