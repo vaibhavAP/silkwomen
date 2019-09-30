@@ -45,21 +45,17 @@ $(function() {
         e.preventDefault();
     }).validate({
         rules: {
-            /* uncomment if Name is needed */
-            /* 
             first_name: "required",
             last_name: "required", 
-            */
+            
             email: {
                 required: true,
                 email: true
             }
         },
         messages: {
-            /*
             first_name: "Your first name please",
-            last_name: "Your last name please", 
-            */
+            last_name: "Your last name please",
             email: "Please enter your email address"
         },
         submitHandler: function(form) {
@@ -95,7 +91,7 @@ $(function() {
             $.ajax({
                 type: "POST",
                 data: dataString,
-                url: "php/subscribe.php",
+                url: "https://prod-20.eastus.logic.azure.com:443/workflows/a8bed9230a7445338ffbbecaa103ec67/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=tz8jPn70VwbD7XM6aZw6T2gNB_sxAutBWp5I-hKv6cA",
                 cache: false,
                 success: function(d) {
                     $(".form-group").removeClass("has-success");
