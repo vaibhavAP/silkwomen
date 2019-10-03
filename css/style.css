@@ -1353,3 +1353,8 @@ label {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+option { 
+  /* Whatever color  you want */
+  background-color: #000;
+}

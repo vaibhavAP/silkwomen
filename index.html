@@ -162,7 +162,7 @@ Page    : index video / Fluid
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true"><i class="pe-7s-close pe-2x"></i></span>
         </button>
-    <h2 class="modal-title" id="contactModalLabel">Join <br>The Silk Women&trade;</h2>
+    <h2 class="modal-title" id="contactModalLabel">Join<br>The Silk Women&trade;</h2>
        
         <form enctype='application/json' class="pr-4 pl-4 pb-4" id="contactform" action="https://prod-20.eastus.logic.azure.com:443/workflows/a8bed9230a7445338ffbbecaa103ec67/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=tz8jPn70VwbD7XM6aZw6T2gNB_sxAutBWp5I-hKv6cA" method="post">
             <input type="hidden" name="test" value="off">
@@ -170,7 +170,6 @@ Page    : index video / Fluid
             <input type="hidden" name="website" value="Silk Women">
             <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
             <input type="text" name="_gotcha" style="display:none" />
-            <input type="hidden" name="interest" value="MicroBusiness Coaching">
         <div class="row">
             <p class="lead text-center text-light p-2">
             Request access to our community, then check your email for instructions on joining.  
@@ -181,7 +180,7 @@ Page    : index video / Fluid
                     <span class="highlight"></span>
                     <span class="bar"></span>
                     <label class="">First Name</label>
-                </div><!-- // end .form-group -->
+                </div>
             </div>
             <div class="col-sm-6">
                 <div class="form-group md-form">
@@ -189,15 +188,73 @@ Page    : index video / Fluid
                     <span class="highlight"></span>
                     <span class="bar"></span>
                     <label class="">Last Name</label>
-                </div><!-- // end .form-group -->
+                </div>
             </div>
         </div>
-        <div class="form-group md-form">
-            <input type="email" name="email" class="form-control input-material" autocomplete="off" required>
-            <span class="highlight"></span>
-            <span class="bar"></span>
-            <label class="">Email Address</label>
-         </div><!-- // end .form-group -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group md-form">
+                    <textarea id="message" name="message" maxlength="1500" class="form-control text-light input-material" rows="3"></textarea>
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    
+                    <label class="">Tell Everyone about Yourself  :) </label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group md-form">
+                    <input type="email" name="email" class="form-control input-material" autocomplete="off" required>
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label class="">Email Address</label>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group md-form">
+                    <select class="form-control input-material" name="interest" id="interest" >
+                        <option value="Not Sure"></option>
+                        <option value="Networking">Socializing &amp; Networking</option>
+                        <option value="Career">Career Advancement</option>
+                        <option value="Mentor">Find a Mentor</option>
+                        <option value="Enterpreneurship">Enterpreneurship</option>
+                        <option value="Leadership">Leadership Development</option>
+                        <option value="Everything">All of the Above</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label class="">Choose an Interest</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group md-form">
+                    <input type="tel" id="tel" name="tel" class="form-control input-material" autocomplete="off" required>
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label for="tel" class="">Phone Number</label>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group md-form">
+                    <select class="form-control input-material" name="interest" id="interest" >
+                        <option value="" selected></option>
+                        <option value="Africa">Africa</option>
+                        <option value="Asia">Asia</option>
+                        <option value="Australia">Australia</option>
+                        <option value="Europe">Europe</option>									
+                        <option value="North America">North America</option>
+                        <option value="South America">South America</option>
+                    </select>
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label class="">Location</label>
+                </div>
+            </div>
+        </div>
          <div class="form-group text-center">
              <button type="submit" class="btn btn-lg btn-outline" id="js-contact-btn">Submit</button>
 
@@ -313,7 +370,7 @@ Page    : index video / Fluid
                         title: '<strong>Submission Successful</strong>',
                         type: 'success',
                         html:
-                            'Check email (and Spam!) for our Messsage.<br>Then, pass the Fundamental Course on the next link.',
+                            'Check email (and Spam!) for our Messsage.<br>Then, pass the Fundamental Course on the next link!',
                         showCloseButton: true,
                         focusConfirm: false,
                         confirmButtonText:
