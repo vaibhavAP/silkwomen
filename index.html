@@ -165,14 +165,15 @@ Page    : index video / Fluid
         </button>
     <h2 class="modal-title" id="contactModalLabel">Join<br>The SILK Women&trade;</h2>
        
-        <form enctype='application/json' class="pr-4 pl-4 pb-4" id="contactform" action="https://door.taolearning.org" method="post">
+        <form enctype='application/json' class="pr-4 pl-4 pb-4" id="contactform" action="https://door.taolearning.org/api/form" method="post">
             <input type="hidden" name="test" value="off">
             <input type="hidden" name="owner" value="5cf40f14-1dd3-e911-a966-000d3a34e4b0">
             <input type="hidden" name="website" value="https://silkwomen.org">
             <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
             <input type="text" name="_gotcha" style="display:none" />
             <input type="hidden" name="budget" value="0">
-            <input type="hidden" name="token" value="0">
+            <input type="hidden" name="token" value="">
+            <input type="hidden" name="formType" value="2">
             <input type="hidden" name="campaign" value="SILK Women">
         <div class="row">
             <p class="lead text-center text-light p-2">
