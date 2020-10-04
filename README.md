@@ -9,6 +9,8 @@ In a new Era, The SILK Women™ Cooperative empowers women through micro-busines
 <h1 align="center">
   <br>
   The SILK Women™
+  <br>
+  <img src="https://github.com/TaoFruit/silkwomen/blob/gh-pages/images/minimal.jpg" alt="The Silk Women" width="400">
 </h1>
 
 
